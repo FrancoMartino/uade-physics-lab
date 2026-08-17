@@ -1,0 +1,221 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "katex/dist/katex.min.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.97 0.008 85);
+  --foreground: oklch(0.24 0.03 250);
+  --card: oklch(0.99 0.004 90);
+  --card-foreground: oklch(0.24 0.03 250);
+  --popover: oklch(0.99 0.004 90);
+  --popover-foreground: oklch(0.24 0.03 250);
+  --primary: oklch(0.32 0.06 250);
+  --primary-foreground: oklch(0.98 0.01 90);
+  --secondary: oklch(0.94 0.015 85);
+  --secondary-foreground: oklch(0.28 0.03 250);
+  --muted: oklch(0.93 0.012 85);
+  --muted-foreground: oklch(0.48 0.02 250);
+  --accent: oklch(0.91 0.04 80);
+  --accent-foreground: oklch(0.28 0.04 250);
+  --destructive: oklch(0.52 0.16 25);
+  --border: oklch(0.86 0.015 85);
+  --input: oklch(0.86 0.015 85);
+  --ring: oklch(0.45 0.06 250);
+  --chart-1: oklch(0.55 0.12 250);
+  --chart-2: oklch(0.62 0.14 50);
+  --chart-3: oklch(0.45 0.08 160);
+  --chart-4: oklch(0.7 0.1 80);
+  --chart-5: oklch(0.4 0.05 250);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.955 0.01 85);
+  --sidebar-foreground: oklch(0.24 0.03 250);
+  --sidebar-primary: oklch(0.32 0.06 250);
+  --sidebar-primary-foreground: oklch(0.98 0.01 90);
+  --sidebar-accent: oklch(0.91 0.03 80);
+  --sidebar-accent-foreground: oklch(0.24 0.03 250);
+  --sidebar-border: oklch(0.86 0.015 85);
+  --sidebar-ring: oklch(0.45 0.06 250);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Literata", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+  .katex {
+    font-size: 1.05em;
+  }
+  .katex-display {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-block: 0.35rem;
+    margin-block: 1rem;
+  }
+}
+
+@layer components {
+  .diagram {
+    @apply mx-auto my-2 h-auto w-full max-w-md;
+  }
+
+  .diagram-label {
+    font-size: 11px;
+    font-family: var(--font-sans);
+  }
+
+  .docs-prose {
+    @apply min-w-0;
+    overflow-wrap: break-word;
+  }
+
+  .docs-prose h1 {
+    @apply mt-2 mb-4 font-serif text-3xl font-medium tracking-tight;
+  }
+
+  .docs-prose h2 {
+    @apply mt-8 mb-3 font-serif text-2xl font-medium tracking-tight;
+  }
+
+  .docs-prose h3 {
+    @apply mt-6 mb-2 font-serif text-xl font-medium;
+  }
+
+  .docs-prose p,
+  .docs-prose li {
+    @apply leading-relaxed;
+  }
+
+  .docs-prose p {
+    @apply my-3;
+  }
+
+  .docs-prose ul {
+    @apply my-3 list-disc space-y-1 pl-5;
+  }
+
+  .docs-prose ol {
+    @apply my-3 list-decimal space-y-1 pl-5;
+  }
+
+  .docs-prose code {
+    @apply rounded bg-muted px-1 py-0.5 font-mono text-[0.9em];
+  }
+
+  .docs-prose pre {
+    @apply my-4 overflow-x-auto rounded-lg border bg-muted/50 p-3 font-mono text-sm;
+  }
+
+  .docs-prose a {
+    @apply text-primary underline underline-offset-4;
+  }
+
+  .informe-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .informe-table th,
+  .informe-table td {
+    @apply border border-border px-2 py-1.5 text-left;
+  }
+
+  .informe-table th {
+    @apply bg-muted/50 font-medium;
+  }
+
+  @media (min-width: 1024px) {
+    details.docs-toc > summary {
+      display: none;
+    }
+    details.docs-toc:not([open]) > :not(summary) {
+      display: block;
+    }
+  }
+}
+
+@media print {
+  .no-print,
+  aside,
+  header {
+    display: none !important;
+  }
+  html,
+  body,
+  #root,
+  .app-shell,
+  .app-shell > div,
+  main {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+  .app-shell {
+    display: block !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+  .sheet {
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+}
