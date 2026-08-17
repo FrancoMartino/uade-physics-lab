@@ -4,7 +4,7 @@ Calculadora del TP1 (mediciones, propagación de errores y densidad) más un han
 
 ## Mañana en el laboratorio
 
-1. **Si hay red:** abrir la URL de GitHub Pages del repo (`https://<usuario>.github.io/uade-physics-lab/`).
+1. **Si hay red:** abrir [https://francomartino.github.io/uade-physics-lab/](https://francomartino.github.io/uade-physics-lab/).
 2. **Plan B, notebook:**
 
 ```bash
